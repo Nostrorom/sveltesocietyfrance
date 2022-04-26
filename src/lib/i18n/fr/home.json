@@ -1,0 +1,4 @@
+{
+    "title": "Bienvenue chez SvelteKit",
+    "text": "Visitez <a href=\"{{link}}\">kit.svelte.dev</a> pour lire la documentation"
+  }
