@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-	import { t, locale, locales, loadTranslations } from '$lib/i18n';
+	import { t, locale, locales, loadTranslations } from '$i18n/index';
 
 	/** @type {import('@sveltejs/kit').Load} */
 

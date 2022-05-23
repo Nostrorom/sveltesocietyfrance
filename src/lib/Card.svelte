@@ -3,14 +3,14 @@
 	export let title: string = 'Svelte Summit Paris 2020';
 	export let content: string;
 
-	let date = new Date(2022, 4, 17);
-	let today = new Date();
-	let place = 'Paris';
+	let date: Date = new Date(2022, 4, 17);
+	let today: Date = new Date();
+	let place: string = 'Paris';
 
-	const diff = Math.round((date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-	const year = date.getFullYear();
-	const month = date.toLocaleString('fr-FR', { month: 'long' });
-	const day = date.getDate();
+	const diff: number = Math.round((date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+	const year: number = date.getFullYear();
+	const month: string = date.toLocaleString('fr-FR', { month: 'long' });
+	const day: number = date.getDate();
 	console.log(diff);
 </script>
 

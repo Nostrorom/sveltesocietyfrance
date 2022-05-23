@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { supabase } from '$lib/db/supabaseClient';
+	import { supabase } from '$db/supabaseClient';
 
-	let loading = false;
+	let loading: boolean = false;
 	let email: string;
 
-	const handleLogin = async () => {
+	const handleLogin = async (): Promise<void> => {
 		try {
 			loading = true;
 			const { error } = await supabase.auth.signIn({ email });

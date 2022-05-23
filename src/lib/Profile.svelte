@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { supabase } from '$lib/db/supabaseClient';
-	import { user } from '$lib/stores/session';
+	import { supabase } from '$db/supabaseClient';
+	import { user } from '$stores/session';
 	import type { User } from '@supabase/supabase-js';
 
 	let loading: boolean = true;

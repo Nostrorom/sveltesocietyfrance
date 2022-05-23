@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { t } from '$lib/i18n/index';
+	import { t } from '$i18n/index';
 	import Card from '$lib/Card.svelte';
 
-	import { user } from '$lib/stores/session';
-	import { supabase } from '$lib/db/supabaseClient';
+	import { user } from '$stores/session';
+	import { supabase } from '$db/supabaseClient';
 	import Auth from '$lib/Auth.svelte';
 	import Profile from '$lib/Profile.svelte';
 
