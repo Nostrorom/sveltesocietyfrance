@@ -3,7 +3,7 @@
 	export let title: string = 'Svelte Summit Paris 2020';
 	export let content: string;
 
-	let date: Date = new Date(2022, 4, 17);
+	let date: Date = new Date('2022-6-1');
 	let today: Date = new Date();
 	let place: string = 'Paris';
 
@@ -14,44 +14,40 @@
 	console.log(diff);
 </script>
 
-<di
-	class="rounded-lg shadow-lg h-48 w-full flex flex-col justify-between overflow-hidden bg-gradient-to-tr from-zinc-50 to-white"
+<div
+	class="cursor-default rounded-lg shadow-md w-full flex flex-col justify-between overflow-hidden bg-gradient-to-tr from-zinc-50 to-white px-4 py-4"
 >
 	<div
-		class="text-svelte-600 mx-3 pt-5 pb-2 border-b border-svelte-600 flex items-center justify-between"
+		class="text-svelte-600 pt-4 pb-2 border-b border-svelte-600 flex items-center justify-between text-xl"
 	>
 		<h4 class=" font-extrabold">
 			{title}
 		</h4>
-		<div class="text-xs rounded-lg bg-blue-100 text-blue-700 px-1.5 py-0.5">
-			Dans {diff} jours
-		</div>
 	</div>
 	<slot />
-	<div class="px-3 ">
-		{content}
-	</div>
-	<div
-		class="text-blue-600 opacity-75 text-xs mx-4 pb-3 pt-2 space-y-1 border-t border-blue-600 border-opacity-50"
-	>
-		<div class="flex items-center space-x-2 ">
-			<div class="opacity-60">
-				<Icon icon="date" />
-			</div>
 
-			<div>
-				{day}
-				{month}
-				{year}
-			</div>
-		</div>
+	<div class="text-sm pb-3 pt-2 flex justify-between">
 		<div class="flex items-center space-x-2">
-			<div class="opacity-50">
-				<Icon icon="pin" />
-			</div>
+			<Icon icon="pin" />
 			<div>
 				{place}
 			</div>
 		</div>
+		<div class="flex space-x-2 items-center justify-between">
+			<Icon icon="date" />
+			<div class="">
+				{day}
+				{month}
+				{year}
+			</div>
+			{#if diff >= 0}
+				<div class="rounded-lg bg-zinc-100 px-1.5 py-0.5 italic">
+					Dans {diff} jours
+				</div>
+			{/if}
+		</div>
 	</div>
-</di>
+	<div class="">
+		{content}
+	</div>
+</div>

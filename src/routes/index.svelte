@@ -1,46 +1,130 @@
 <script lang="ts">
-	import { t } from '$i18n/index';
-	import Card from '$lib/Card.svelte';
-
-	import { user } from '$stores/session';
 	import { supabase } from '$db/supabaseClient';
-	import Auth from '$lib/Auth.svelte';
-	import Profile from '$lib/Profile.svelte';
+	import Card from '$lib/Card.svelte';
+	import { user } from '$stores/session';
+	import type { User, Position, newEvent } from '$types/db';
 
-	user.set(supabase.auth.user());
+	const createProfile = async () => {
+		console.log('request goes');
+		const { data, error } = await supabase.from('testdb').insert([
+			{
+				name: 'John',
+				linkedin_url: 'https://chezoim'
+			}
+		]);
 
-	supabase.auth.onAuthStateChange((_, session) => {
-		if (session) {
-			user.set(session.user);
+		console.log('DATA', data);
+		console.log('ERROR', error);
+	};
+
+	const createUser = async () => {
+		console.log('user goes');
+		// const { user, session, error } = await supabase.auth.signUp({
+		// 	email: 'arnaud.fouche@coddity.com',
+		// 	password: '123456'
+		// });
+
+		const { user, session, error } = await supabase.auth.signIn({
+			provider: 'github'
+		});
+
+		console.log('%cUSER', 'color:green', user);
+		console.log('%cSESSION', 'color:coral', user);
+		console.log('%cERROR', 'color:red', error);
+	};
+
+	// let user = {
+	// 	email: 'john@bigood.com',
+	// 	linkedin_url: 'https://linkedin.com'
+	// };
+
+	// class User {
+	// 	id: string = '';
+	// 	username: string = '';
+	// 	github: string = '';
+	// 	twitter: string = '';
+	// 	linkedin: string = '';
+	// 	email: string = '';
+	// 	location!: Position;
+	// }
+
+	let newUser: User = {
+		username: '',
+		github: '',
+		twitter: '',
+		linkedin: '',
+		email: '',
+		organizer: import.meta.env.VITE_UUID
+	};
+
+	let newEvent: newEvent = {
+		organizer: import.meta.env.VITE_UUID,
+		date: new Date('2020-05-07'),
+		location: 'Lyon'
+	};
+
+	const ping = async () => {
+		const { data, error } = await supabase.from('users').insert(newUser);
+
+		console.log(data, error);
+	};
+
+	const createEvent = async (): Promise<void> => {
+		try {
+			const { data, error } = await supabase.from('events').insert(newEvent);
+
+			console.log(data, error);
+		} catch (error) {
+			throw new Error();
 		}
-	});
+	};
 
-	$: console.log($user);
-
-	const pageName = 'This page is Home page!';
-	const link = 'https://kit.svelte.dev';
+	$: console.log(newUser);
 </script>
 
-<!-- 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p> -->
-
-<!-- <div class="bg-gray-200">
-
-	<h1>{$t('home.title')}</h1>
-	<p>{@html $t('home.text', { link })}</p>
-</div> -->
-<!-- 
-<div class="w-full px-24 bg-zinc-100 h-1/2 space-y-8 py-8">
-	<Card content="saloute: Dem gonna be evens" />
-	<Card content="saloute: Dem gonna be evens" />
-	<Card content="saloute: Dem gonna be evens" />
-</div> -->
-
-<div class="h-1/2 p-8 pt-24">
-	{#if $user}
-		<Profile />
-	{:else}
-		<Auth />
-	{/if}
+<div class="m-20 p-14 border rounded-md shadow-lg border-zinc-300 space-y-5">
+	<form action="">
+		<label>
+			username
+			<input
+				class="bg-zinc-300 rounded-lg p-3 w-full"
+				type="text"
+				name="username"
+				bind:value={newUser.username}
+			/>
+		</label>
+		<label>
+			email
+			<input
+				class="bg-zinc-300 rounded-lg p-3 w-full"
+				type="text"
+				name="email"
+				bind:value={newUser.email}
+			/>
+		</label>
+		<label>
+			github
+			<input
+				class="bg-zinc-300 rounded-lg p-3 w-full"
+				type="text"
+				name="github"
+				bind:value={newUser.github}
+			/>
+		</label>
+		<label>
+			twitter
+			<input
+				class="bg-zinc-300 rounded-lg p-3 w-full"
+				type="text"
+				name="twitter"
+				bind:value={newUser.twitter}
+			/>
+		</label>
+		<button on:click|preventDefault={createEvent} class="bg-blue-900 text-white p-3 rounded-lg"
+			>Send</button
+		>
+	</form>
 </div>
+<section class="px-12">
+	<Card content="summit" />
+</section>

@@ -18,8 +18,8 @@
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "@types/node": "^17.0.35",
-    "@typescript-eslint/eslint-plugin": "^5.25.0",
-    "@typescript-eslint/parser": "^5.25.0",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
     "autoprefixer": "^10.4.7",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.5.0",
@@ -32,11 +32,11 @@
     "svelte-preprocess": "^4.10.6",
     "tailwindcss": "^3.0.24",
     "tslib": "^2.4.0",
-    "typescript": "~4.6.4"
+    "typescript": "~4.7.2"
   },
   "type": "module",
   "dependencies": {
-    "@fontsource/inter": "^4.5.10",
+    "@fontsource/overpass": "^4.5.8",
     "@supabase/supabase-js": "^1.35.3",
     "dotenv": "^16.0.1",
     "sveltekit-i18n": "^2.2.2"

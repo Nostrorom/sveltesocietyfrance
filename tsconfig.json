@@ -12,5 +12,37 @@
 		"sourceMap": true,
 		"strict": true,
 		"target": "esnext",
+		"paths": {
+			"$lib": [
+				"src/lib"
+			],
+			"$lib/*": [
+				"src/lib/*"
+			],
+			"$types": [
+				"types"
+			],
+			"$types/*": [
+				"types/*"
+			],
+			"$stores": [
+				"src/stores"
+			],
+			"$stores/*": [
+				"src/stores/*"
+			],
+			"$i18n": [
+				"src/i18n"
+			],
+			"$i18n/*": [
+				"src/i18n/*"
+			],
+			"$db": [
+				"src/db"
+			],
+			"$db/*": [
+				"src/db/*"
+			],
+		},
 	}
 }
