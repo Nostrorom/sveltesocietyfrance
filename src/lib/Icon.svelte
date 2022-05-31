@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { twH } from '$stores/tailwind';
+	import { twH } from '$stores/tailwind.json';
 	export let icon: string;
 	export let size: number = 32;
 </script>
