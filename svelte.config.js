@@ -13,8 +13,8 @@ const config = {
 		vite: {
 			resolve: {
 				alias: {
-					// $lib: resolve('./src/lib'),
-					$types: resolve('./types'),
+					$lib: resolve('./src/lib'),
+					$types: resolve('./src/types'),
 					$db: resolve('./src/db'),
 					$i18n: resolve('./src/i18n'),
 					$stores: resolve('./src/stores')

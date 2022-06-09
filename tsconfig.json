@@ -4,9 +4,6 @@
 		"allowJs": false,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
-		"lib": ["esnext", "DOM"],
-		"moduleResolution": "node",
-		"module": "esnext",
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
@@ -20,10 +17,10 @@
 				"src/lib/*"
 			],
 			"$types": [
-				"types"
+				"src/types"
 			],
 			"$types/*": [
-				"types/*"
+				"src/types/*"
 			],
 			"$stores": [
 				"src/stores"

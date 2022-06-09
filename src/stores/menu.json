@@ -1,0 +1,40 @@
+[
+	{
+		"title": "événements",
+		"links": [
+      { 
+        "name": "Svelte Meetup Paris 2022",
+        "href": "/events/svelte-meetup-paris-2022"
+      },
+      { 
+        "name": "Svelte Summit Paris 2020",
+        "href": "/evenements"
+      }
+      ]
+	},
+	{
+		"title": "communauté",
+		"links": [
+      { 
+        "name": "Paris",
+        "href": "/evenements"
+      },
+      { 
+        "name": "Rennes",
+        "href": "/evenements"
+      }
+      ]
+	},{
+		"title": "réseaux",
+		"links": [
+      { 
+        "name": "Twitter",
+        "href": "/evenements"
+      },
+      { 
+        "name": "Discord",
+        "href": "/evenements"
+      }
+      ]
+	}
+]

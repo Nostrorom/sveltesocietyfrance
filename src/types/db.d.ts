@@ -20,7 +20,7 @@ type Position = string | {
 	lng:string
 } 
 
-export type User = {
+export type Userr = {
 	id?: string;
 	organizer:string,
 	username:string;
@@ -31,14 +31,14 @@ export type User = {
 	location?:Position
 };
 
-export interface newEvent {
+export interface NewSvelteEvent {
 	organizer:string,
 	date:Date,
 	location?:Position,
 	attendees?:string[]
 }
 
-export interface Event extends newEvent {
+export interface SvelteEvent extends NewSvelteEvent {
 	id:string,
 	attendees:string[]
 }
